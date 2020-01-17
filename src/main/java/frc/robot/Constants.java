@@ -3,11 +3,18 @@ package frc.robot;
 public final class Constants {
 
 	public static final double SPEED_TURRET = 0.5;
+	public static final double SPEED_INTAKE = 0.3;
+	public static final double SPEED_SHOOTER = 0.3;
 
 	public static final int DRIVETRAIN_FRONT_LEFT_PORT = 3;
     public static final int DRIVETRAIN_FRONT_RIGHT_PORT = 1;
 	public static final int DRIVETRAIN_BACK_LEFT_PORT = 2;
 	public static final int DRIVETRAIN_BACK_RIGHT_PORT = 4;
+
+	public static final int SHOOTER_LEFT_PORT = 69;
+	public static final int SHOOTER_RIGHT_PORT = 69;
+	public static final int TURRET_PORT = 69;
+	public static final int INTAKE_PORT = 5;
     
     public static final int CONTROLLER_PORT = 0;
     public static final int CONTROLLER_LEFT_AXIS_X = 0;

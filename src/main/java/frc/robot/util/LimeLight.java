@@ -4,8 +4,8 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class LimeLight {
 
-    private double driveCommand;
-    private double turnCommand;
+    private double throttleValue;
+    private double turnValue;
     private boolean hasValidTarget;
 
     public void updateTracking() {
@@ -24,8 +24,8 @@ public class LimeLight {
         if (tv < 1.0)
         {
             hasValidTarget = false;
-            driveCommand = 0.0;
-            turnCommand = 0.0;
+            throttleValue = 0.0;
+            turnValue = 0.0;
             return;
         }
 
@@ -33,7 +33,7 @@ public class LimeLight {
 
         // Start with proportional steering
         double steer_cmd = tx * STEER_K;
-        turnCommand = steer_cmd;
+        turnValue = steer_cmd;
 
         // try to drive forward until the target area reaches our desired area
         double drive_cmd = (DESIRED_TARGET_AREA - ta) * DRIVE_K;
@@ -43,13 +43,13 @@ public class LimeLight {
         {
             drive_cmd = MAX_DRIVE;
         }
-        driveCommand = drive_cmd;
+        throttleValue = drive_cmd;
 
     }
 
-    public double getDriveCommand() { return driveCommand; }
+    public double getThrottleValue() { return throttleValue; }
 
-    public double getTurnCommand() { return turnCommand; }
+    public double getTurnValue() { return turnValue; }
 
     public boolean hasValidTarget() { return hasValidTarget; }
 
