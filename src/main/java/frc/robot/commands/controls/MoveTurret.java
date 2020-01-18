@@ -19,12 +19,12 @@ public class MoveTurret extends CommandBase {
 
     @Override
     public void initialize() {
-        turret.turn(powerValue, direction);
+        
     }
 
     @Override
     public void execute() {
-
+        turret.turn(powerValue, direction);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class MoveTurret extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
 }

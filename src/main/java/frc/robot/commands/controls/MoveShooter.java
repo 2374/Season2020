@@ -16,12 +16,12 @@ public class MoveShooter extends CommandBase {
 
     @Override
     public void initialize() {
-        shooter.move(Constants.SPEED_SHOOTER);
+        
     }
 
     @Override
     public void execute() {
-
+        shooter.move(Constants.SPEED_SHOOTER);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class MoveShooter extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
 }

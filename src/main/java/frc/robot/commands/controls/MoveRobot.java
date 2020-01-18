@@ -18,12 +18,12 @@ public class MoveRobot extends CommandBase {
 
     @Override
     public void initialize() {
-        drivetrain.arcadeDrive(controller.getJoystickLeftX(), controller.getJoystickLeftY());
+        
     }
 
     @Override
     public void execute() {
-
+        drivetrain.arcadeDrive(controller.getJoystickLeftX(), controller.getJoystickLeftY());
     }
 
     @Override
@@ -33,7 +33,7 @@ public class MoveRobot extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
 }

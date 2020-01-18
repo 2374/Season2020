@@ -2,7 +2,6 @@ package frc.robot;
 
 import frc.robot.commands.magic.FindTarget;
 import frc.robot.commands.controls.MoveIntake;
-import frc.robot.commands.controls.MoveRobot;
 import frc.robot.commands.controls.MoveShooter;
 import frc.robot.commands.controls.MoveTurret;
 import frc.robot.commands.auto.MoveForward;
@@ -39,8 +38,6 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    JoystickButton leftJoystickAxisX = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_AXIS_X);
-    JoystickButton leftJoystickAxisY = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_AXIS_Y);
     JoystickButton leftBumper = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_BUMPER);
     JoystickButton rightBumper = new JoystickButton(controller.getController(), Constants.CONTROLLER_RIGHT_BUMPER);
     JoystickButton leftTrigger = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_TRIGGER);
@@ -48,11 +45,8 @@ public class RobotContainer {
     JoystickButton buttonX = new JoystickButton(controller.getController(), Constants.CONTROLLER_BUTTON_X);
     JoystickButton buttonB = new JoystickButton(controller.getController(), Constants.CONTROLLER_BUTTON_B);
 
-    leftJoystickAxisX.whenPressed(new MoveRobot(drivetrain, controller));
-    leftJoystickAxisY.whenPressed(new MoveRobot(drivetrain, controller));
-
-    leftBumper.whenPressed(new MoveIntake(intake, 1));
-    rightBumper.whenPressed(new MoveIntake(intake, -1));
+    leftBumper.whileHeld(new MoveIntake(intake, 1));
+    rightBumper.whileHeld(new MoveIntake(intake, -1));
 
     leftTrigger.whenPressed(new MoveTurret(turret, controller.getLeftTrigger(), 1));
     rightTrigger.whenPressed(new MoveTurret(turret, controller.getRightTrigger(), -1));
@@ -63,6 +57,14 @@ public class RobotContainer {
 
   public Command getMoveForwardAutonomousCommand() {
     return moveForwardCommand;
+  }
+
+  public Drivetrain getDrivetrain() {
+    return drivetrain;
+  }
+
+  public Controller getController() {
+    return controller;
   }
 
 }

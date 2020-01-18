@@ -18,12 +18,12 @@ public class MoveIntake extends CommandBase {
 
     @Override
     public void initialize() {
-        intake.move(Constants.SPEED_INTAKE, direction);
+        
     }
 
     @Override
     public void execute() {
-
+        intake.move(Constants.SPEED_INTAKE, direction);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class MoveIntake extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
 }
