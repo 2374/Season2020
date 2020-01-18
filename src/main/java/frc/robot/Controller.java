@@ -10,15 +10,15 @@ public class Controller {
 		this.controller = new XboxController(Constants.CONTROLLER_PORT);
     }
 
-    public double getJoystickLeftX() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_AXIS_X), 0.2); }
+    public double getJoystickLeftX() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_AXIS_X), 0.4); }
 	
-	public double getJoystickLeftY() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_AXIS_Y), 0.2); }
+	public double getJoystickLeftY() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_AXIS_Y), 0.4); }
 
-	public double getJoystickRightX() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_RIGHT_AXIS_X), 0.2); }
+	public double getJoystickRightX() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_RIGHT_AXIS_X), 0.4); }
 	
-	public double getJoystickRightY() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_RIGHT_AXIS_Y), 0.2); }
+	public double getJoystickRightY() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_RIGHT_AXIS_Y), 0.4); }
 
-	public double getLeftTrigger() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_TRIGGER), 0.2); }
+	public double getLeftTrigger() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_TRIGGER), 0.4); }
 
 	public double getRightTrigger() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_RIGHT_TRIGGER), 0.5); }
 	

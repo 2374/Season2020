@@ -5,7 +5,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Robot;
 
 public class Drivetrain extends SubsystemBase {
 
@@ -39,9 +38,9 @@ public class Drivetrain extends SubsystemBase {
     tankDrive(leftMotor, -rightMotor);
 	}
 
-  @Override
-  public void periodic() {
-    //Robot.getDrivetrain().tankDrive(Robot.getController().getJoystickLeftY(), Robot.getController().getJoystickRightY());
-    Robot.getDrivetrain().arcadeDrive(Robot.getController().getJoystickLeftX(), Robot.getController().getJoystickLeftY());
-  }
+  // @Override
+  // public void periodic() {
+  //   //Robot.getDrivetrain().tankDrive(Robot.getController().getJoystickLeftY(), Robot.getController().getJoystickRightY());
+  //   Robot.getDrivetrain().arcadeDrive(Robot.getController().getJoystickLeftX(), Robot.getController().getJoystickLeftY());
+  // }
 }

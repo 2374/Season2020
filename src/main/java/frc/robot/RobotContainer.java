@@ -1,57 +1,68 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018-2019 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.magic.FindTarget;
+import frc.robot.commands.controls.MoveIntake;
+import frc.robot.commands.controls.MoveRobot;
+import frc.robot.commands.controls.MoveShooter;
+import frc.robot.commands.controls.MoveTurret;
+import frc.robot.commands.auto.MoveForward;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Turret;
+import frc.robot.util.LimeLight;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-/**
- * This class is where the bulk of the robot should be declared.  Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
- * (including subsystems, commands, and button mappings) should be declared here.
- */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final Drivetrain m_exampleSubsystem = new Drivetrain();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private Drivetrain drivetrain;
+  private Shooter shooter;
+  private Turret turret;
+  private Intake intake;
+  private LimeLight limelight;
+  private Controller controller;
 
+  private MoveForward moveForwardCommand;
 
-
-  /**
-   * The container for the robot.  Contains subsystems, OI devices, and commands.
-   */
   public RobotContainer() {
-    // Configure the button bindings
+    this.drivetrain = new Drivetrain();
+    this.shooter = new Shooter();
+    this.turret = new Turret();
+    this.intake = new Intake();
+    this.limelight = new LimeLight();
+    this.controller = new Controller();
+
+    this.moveForwardCommand = new MoveForward(drivetrain);
+
     configureButtonBindings();
   }
 
-  /**
-   * Use this method to define your button->command mappings.  Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
-   * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-   */
   private void configureButtonBindings() {
+    JoystickButton leftJoystickAxisX = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_AXIS_X);
+    JoystickButton leftJoystickAxisY = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_AXIS_Y);
+    JoystickButton leftBumper = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_BUMPER);
+    JoystickButton rightBumper = new JoystickButton(controller.getController(), Constants.CONTROLLER_RIGHT_BUMPER);
+    JoystickButton leftTrigger = new JoystickButton(controller.getController(), Constants.CONTROLLER_LEFT_TRIGGER);
+    JoystickButton rightTrigger = new JoystickButton(controller.getController(), Constants.CONTROLLER_RIGHT_TRIGGER);
+    JoystickButton buttonX = new JoystickButton(controller.getController(), Constants.CONTROLLER_BUTTON_X);
+    JoystickButton buttonB = new JoystickButton(controller.getController(), Constants.CONTROLLER_BUTTON_B);
+
+    leftJoystickAxisX.whenPressed(new MoveRobot(drivetrain, controller));
+    leftJoystickAxisY.whenPressed(new MoveRobot(drivetrain, controller));
+
+    leftBumper.whenPressed(new MoveIntake(intake, 1));
+    rightBumper.whenPressed(new MoveIntake(intake, -1));
+
+    leftTrigger.whenPressed(new MoveTurret(turret, controller.getLeftTrigger(), 1));
+    rightTrigger.whenPressed(new MoveTurret(turret, controller.getRightTrigger(), -1));
+
+    buttonX.whenPressed(new MoveShooter(shooter));
+    buttonB.whenPressed(new FindTarget(limelight));
   }
 
-
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
-  public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+  public Command getMoveForwardAutonomousCommand() {
+    return moveForwardCommand;
   }
+
 }

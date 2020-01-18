@@ -5,7 +5,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Robot;
 
 public class Shooter extends SubsystemBase {
 
@@ -18,17 +17,17 @@ public class Shooter extends SubsystemBase {
     }
 
     public void move(double powerValue) {
-        leftShooter.set(ControlMode.PercentOutput, powerValue);
-        rightShooter.set(ControlMode.PercentOutput, -powerValue);
+        leftShooter.set(ControlMode.PercentOutput, -powerValue);
+        rightShooter.set(ControlMode.PercentOutput, powerValue);
     }
 
-    @Override
-    public void periodic() {
-        if (Robot.getController().getButtonX()) {
-            Robot.getShooter().move(Constants.SPEED_SHOOTER);
-        } else {
-            Robot.getShooter().move(0.0);
-        }
-    }
+    // @Override
+    // public void periodic() {
+    //     if (Robot.getController().getLeftTrigger() > 0.1) {
+    //         Robot.getShooter().move(Robot.getController().getLeftTrigger());
+    //     } else {
+    //         Robot.getShooter().move(0.0);
+    //     }
+    // }
 
 }
