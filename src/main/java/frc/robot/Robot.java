@@ -5,6 +5,9 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
 
+  // Is there any real reason to have the bulk of the code in RobotContainer instead of moving
+  // everything directly into Robot? It isn't reused anywhere, and having a seemingly unused
+  // variable that needs to be kept alive is generally bad practice.
   private RobotContainer container;
 
   @Override

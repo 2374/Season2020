@@ -10,6 +10,13 @@ public class Controller {
 		this.controller = new XboxController(Constants.CONTROLLER_PORT);
     }
 
+	// This applies everywhere, but you should pick a style guide and stick with it. Consistent
+	// line length, naming, etc. does more than you'd expect for long-term maintainability,
+	// particularly as team members change. I imagine VS Code has plugins for automatically
+	// catching and fixing style issues for common standards.
+
+	// Magic numbers should be moved to well-named constants, or at the very least, should have
+	// comments explaining why they were chosen.
     public double getJoystickLeftX() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_AXIS_X), 0.4); }
 	
 	public double getJoystickLeftY() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_LEFT_AXIS_Y), 0.4); }
@@ -42,6 +49,9 @@ public class Controller {
 
 	public boolean getButtonM2() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_M2); }
 
+	// Could be condensed into a one liner using the ternary operator, although it's up to you
+	// which to use.
+	// return Math.abs(axisValue) > deadValue ? axisValue : 0;
 	private double deadZone(double axisValue, double deadValue) {
 		if (Math.abs(axisValue) > deadValue) {
 			return axisValue;

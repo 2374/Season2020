@@ -9,6 +9,7 @@ public class MoveIntake extends CommandBase {
     private Intake intake;
     private int direction;
 
+    // Should direction be clamped in the range [-1, 1]?
     public MoveIntake(Intake intake, int direction) {
         this.intake = intake;
         this.direction = direction;
@@ -28,6 +29,8 @@ public class MoveIntake extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
+        // I think the 0.0 is superfluous when passing to a method - just "0" should be fine.
+        // This applies here and everywhere else in this project.
         intake.move(0.0, 0);
     }
 

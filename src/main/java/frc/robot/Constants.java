@@ -17,6 +17,7 @@ public final class Constants {
 	public static final int TURRET_PORT = 69;
 	public static final int INTAKE_PORT = 5;
     
+	// Nit: Might be worth moving groups of constants into their own nested classes.
 	public static final int CONTROLLER_PORT = 0;
 	public static final int CONTROLLER_LEFT_AXIS_X = 0;
 	public static final int CONTROLLER_LEFT_AXIS_Y = 1;

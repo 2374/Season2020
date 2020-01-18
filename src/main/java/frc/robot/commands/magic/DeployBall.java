@@ -1,3 +1,4 @@
+// "magic" doesn't seem like a very descriptive part of the package name.
 package frc.robot.commands.magic;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
@@ -20,6 +21,7 @@ public class DeployBall extends SequentialCommandGroup {
 
         addCommands(
             new FindTarget(limelight),
+            // Magic number
             new EjectBall(shooter, 0.69).withTimeout(1)
         );        
 
