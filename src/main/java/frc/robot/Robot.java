@@ -15,6 +15,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
+    container.getLimeLight().updateTracking();
   }
 
   @Override
@@ -30,7 +31,6 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     //container.getDrivetrain().tankDrive(-container.getController().getJoystickLeftY() / 2.0, -container.getController().getJoystickRightY() / 2.0);
     //container.getDrivetrain().arcadeDrive(-container.getController().getJoystickLeftY(), container.getController().getJoystickLeftX());
-    container.getShooter().move(container.getController().getLeftTrigger(), 1);
   }
 
   @Override

@@ -14,8 +14,8 @@ public final class Constants {
 
 	public static final int SHOOTER_LEFT_PORT = 7;
 	public static final int SHOOTER_RIGHT_PORT = 6;
-	public static final int TURRET_PORT = 69;
-	public static final int INTAKE_PORT = 5;
+	public static final int TURRET_PORT = 5;
+	public static final int INTAKE_PORT = 69;
 	
 	public static final int MAGIC_EDGES_PER_CYCLE = 2;
 	public static final int MAGIC_FILTER_WINDOW_SIZE = 1;

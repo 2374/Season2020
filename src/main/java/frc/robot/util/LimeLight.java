@@ -8,10 +8,11 @@ public class LimeLight {
 
     private boolean hasValidTarget = false;
     private double throttleValue = 0.0;
-    private double horizontalTargetAngle = 0.0;
+    private double turnValue = 0.0;
     private double verticalTargetAngle = 0.0;
+    private double horizontalTargetAngle = 0.0;
 
-    static final double LIMELIGHT_HEIGHT_CM = 62.865; //h1
+    static final double LIMELIGHT_HEIGHT_CM = 68.58; //h1
     static final double TARGET_HEIGHT_CM = 206.0; //h2
     static final double LIMELIGHT_MOUNTING_ANGLE = 11.0; //a1
     
@@ -34,7 +35,7 @@ public class LimeLight {
         if (tv < 1.0) {
             hasValidTarget = false;
             throttleValue = 0.0;
-            horizontalTargetAngle = 0.0;
+            turnValue = 0.0;
             verticalTargetAngle = 0.0;
             return;
         }
@@ -43,8 +44,9 @@ public class LimeLight {
 
         // Start with proportional steering
         final double steer_cmd = tx * STEER_K;
-        horizontalTargetAngle = steer_cmd;
+        turnValue = steer_cmd;
         verticalTargetAngle = ty;
+        horizontalTargetAngle = tx;
   
         // try to drive forward until the target area reaches our desired area
         // This should be replaced by LIDAR call
@@ -61,31 +63,22 @@ public class LimeLight {
 
     public double calculateDistance() {
         double distance = 0.0;
-        System.out.println("    ");
-        System.out.println("A1: " + LIMELIGHT_MOUNTING_ANGLE);
-        System.out.println("A2: " + this.getVerticalTargetAngle());
-        System.out.println("H2: " + TARGET_HEIGHT_CM);
-        System.out.println("H1: " + LIMELIGHT_HEIGHT_CM);
-        
+
         double differenceDistance = TARGET_HEIGHT_CM - LIMELIGHT_HEIGHT_CM;
-        double denom = Math.tan(Math.toRadians(this.getVerticalTargetAngle()));
-        double denomTest = Math.toDegrees(denom);
+        double denom = Math.tan(Math.toRadians(LIMELIGHT_MOUNTING_ANGLE + this.getVerticalTargetAngle()));
         distance = differenceDistance / denom;
         
-        System.out.println("h2 - h1: " + differenceDistance);
-        System.out.println("Tan: " + denom);
-        System.out.println("Testing tan " + denomTest);
-        System.out.println("D: " + distance);
-        System.out.println("    ");
         return distance;
     }
 
     public double getVerticalTargetAngle() { return this.verticalTargetAngle; }
 
+    public double getHorizontalTargetAngle() { return this.horizontalTargetAngle; }
+
     public boolean hasValidTarget() { return hasValidTarget; }
 
     public double getThrottleValue() { return throttleValue; }
     
-    public double getTurnValue() { return horizontalTargetAngle; }
+    public double getTurnValue() { return turnValue; }
 
 }

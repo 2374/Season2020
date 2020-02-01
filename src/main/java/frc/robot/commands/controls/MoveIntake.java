@@ -1,16 +1,17 @@
 package frc.robot.commands.controls;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.subsystems.Intake;
 
 public class MoveIntake extends CommandBase {
 
     private Intake intake;
+    private double power;
     private int direction;
 
-    public MoveIntake(Intake intake, int direction) {
+    public MoveIntake(Intake intake, double power, int direction) {
         this.intake = intake;
+        this.power = power;
         this.direction = direction;
 
         addRequirements(intake);
@@ -23,7 +24,7 @@ public class MoveIntake extends CommandBase {
 
     @Override
     public void execute() {
-        intake.move(Constants.SPEED_INTAKE, direction);
+        intake.move(power, direction);
     }
 
     @Override

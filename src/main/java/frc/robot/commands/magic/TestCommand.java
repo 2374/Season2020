@@ -1,12 +1,17 @@
 package frc.robot.commands.magic;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Controller;
+import frc.robot.subsystems.Shooter;
 import frc.robot.util.LimeLight;
 
-public class TestDistance extends CommandBase {
+public class TestCommand extends CommandBase {
+
+    private Shooter shooter;
     private LimeLight limelight;
 
-    public TestDistance(LimeLight limelight) {
+    public TestCommand(Shooter shooter, LimeLight limelight) {
+        this.shooter = shooter;
         this.limelight = limelight;
     }
 
@@ -17,8 +22,7 @@ public class TestDistance extends CommandBase {
 
     @Override
     public void execute() {
-        limelight.updateTracking();
-        System.out.println(limelight.calculateDistance());
+        System.out.println("RPM: " + shooter.getRPM() + " | Distance: " + limelight.calculateDistance());
     }
 
     @Override

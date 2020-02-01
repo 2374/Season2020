@@ -30,6 +30,7 @@ public class MoveRobot extends CommandBase {
             drivetrain.tankDrive(firstValue, secondValue);
         } else {
             drivetrain.arcadeDrive(firstValue, secondValue);
+            //System.out.println("Arcade, throttle: " + firstValue + " turn: " + secondValue);
         }
     }
 

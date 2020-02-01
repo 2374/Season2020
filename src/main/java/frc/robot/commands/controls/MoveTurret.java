@@ -6,12 +6,12 @@ import frc.robot.subsystems.Turret;
 public class MoveTurret extends CommandBase {
 
     private Turret turret;
-    private double powerValue;
+    private double power;
     private int direction;
 
-    public MoveTurret(Turret turret, double powerValue, int direction) {
+    public MoveTurret(Turret turret, double power, int direction) {
         this.turret = turret;
-        this.powerValue = powerValue;
+        this.power = power;
         this.direction = direction;
 
         addRequirements(turret);
@@ -24,7 +24,7 @@ public class MoveTurret extends CommandBase {
 
     @Override
     public void execute() {
-        turret.turn(powerValue, direction);
+        turret.turn(power, direction);
     }
 
     @Override
