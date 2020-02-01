@@ -22,31 +22,8 @@ public class Controller {
 
 	public double getRightTrigger() { return deadZone(controller.getRawAxis(Constants.CONTROLLER_RIGHT_TRIGGER), 0.5); }
 	
-	public boolean getLeftBumper() { return controller.getRawButton(Constants.CONTROLLER_LEFT_BUMPER); }
-
-	public boolean getRightBumper() { return controller.getRawButton(Constants.CONTROLLER_RIGHT_BUMPER); }
-
-	public boolean getButtonA() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_A); }
-	
-	public boolean getButtonB() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_B); }
-
-	public boolean getButtonX() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_X); }
-
-	public boolean getButtonY() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_Y); }
-
-	public boolean getButtonBack() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_BACK); }
-	
-	public boolean getButtonStart() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_START); }
-
-	public boolean getButtonM1() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_M1); }
-
-	public boolean getButtonM2() { return controller.getRawButton(Constants.CONTROLLER_BUTTON_M2); }
-
 	private double deadZone(double axisValue, double deadValue) {
-		if (Math.abs(axisValue) > deadValue) {
-			return axisValue;
-		}
-		return 0.0;
+		return Math.abs(axisValue) > deadValue ? axisValue : 0.0;
 	}
 	
 	public XboxController getController() { return controller; }

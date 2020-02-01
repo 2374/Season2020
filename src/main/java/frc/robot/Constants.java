@@ -8,15 +8,19 @@ public final class Constants {
 	public static final double SPEED_AUTO = 0.3;
 
 	public static final int DRIVETRAIN_FRONT_LEFT_PORT = 3;
-    public static final int DRIVETRAIN_FRONT_RIGHT_PORT = 1;
-	public static final int DRIVETRAIN_BACK_LEFT_PORT = 2;
-	public static final int DRIVETRAIN_BACK_RIGHT_PORT = 4;
+    public static final int DRIVETRAIN_FRONT_RIGHT_PORT = 4;
+	public static final int DRIVETRAIN_BACK_LEFT_PORT = 1;
+	public static final int DRIVETRAIN_BACK_RIGHT_PORT = 2;
 
 	public static final int SHOOTER_LEFT_PORT = 7;
 	public static final int SHOOTER_RIGHT_PORT = 6;
 	public static final int TURRET_PORT = 69;
 	public static final int INTAKE_PORT = 5;
-    
+	
+	public static final int MAGIC_EDGES_PER_CYCLE = 2;
+	public static final int MAGIC_FILTER_WINDOW_SIZE = 1;
+	public static final int TALON_FX_SENSOR_UNITS = 2048;
+
 	public static final int CONTROLLER_PORT = 0;
 	public static final int CONTROLLER_LEFT_AXIS_X = 0;
 	public static final int CONTROLLER_LEFT_AXIS_Y = 1;

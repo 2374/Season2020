@@ -1,17 +1,20 @@
 package frc.robot.commands.controls;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Controller;
 import frc.robot.subsystems.Drivetrain;
 
 public class MoveRobot extends CommandBase {
 
     private Drivetrain drivetrain;
-    private Controller controller;
+    private double firstValue;
+    private double secondValue;
+    private boolean isTank;
 
-    public MoveRobot(Drivetrain drivetrain, Controller controller) {
+    public MoveRobot(Drivetrain drivetrain, double firstValue, double secondValue, boolean isTank) {
         this.drivetrain = drivetrain;
-        this.controller = controller;
+        this.firstValue = firstValue;
+        this.secondValue = secondValue;
+        this.isTank = isTank;
 
         addRequirements(drivetrain);
     }
@@ -23,7 +26,11 @@ public class MoveRobot extends CommandBase {
 
     @Override
     public void execute() {
-        drivetrain.arcadeDrive(controller.getJoystickLeftX(), controller.getJoystickLeftY());
+        if (isTank) {
+            drivetrain.tankDrive(firstValue, secondValue);
+        } else {
+            drivetrain.arcadeDrive(firstValue, secondValue);
+        }
     }
 
     @Override

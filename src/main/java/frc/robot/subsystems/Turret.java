@@ -18,13 +18,4 @@ public class Turret extends SubsystemBase {
         turret.set(ControlMode.PercentOutput, powerValue * direction);
     }
 
-    // @Override
-    // public void periodic() {
-    //     if (Robot.getController().getLeftTrigger() > 0.1) {
-    //         Robot.getTurret().turn(Constants.SPEED_TURRET, 1);
-    //     } else if (Robot.getController().getRightTrigger() > 0.1) {
-    //         Robot.getTurret().turn(Constants.SPEED_TURRET, -1);
-    //     }
-    // }
-
 }

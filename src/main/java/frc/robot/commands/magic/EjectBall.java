@@ -17,7 +17,7 @@ public class EjectBall extends CommandBase {
 
     @Override
     public void initialize() {
-        shooter.move(powerValue);
+        shooter.move(powerValue, 1);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class EjectBall extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        shooter.move(0.0);
+        shooter.move(0.0, 1);
     }
 
     @Override

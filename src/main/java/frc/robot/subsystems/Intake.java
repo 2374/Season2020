@@ -19,15 +19,4 @@ public class Intake extends SubsystemBase {
         intake.set(ControlMode.PercentOutput, powerValue * direction);
     }
 
-    // @Override
-    // public void periodic() {
-    //     if (Robot.getController().getLeftBumper()) {
-    //         Robot.getIntake().move(Constants.SPEED_INTAKE, 1);
-    //     } else if (Robot.getController().getRightBumper()) {
-    //         Robot.getIntake().move(Constants.SPEED_INTAKE, -1);
-    //     } else {
-    //         Robot.getIntake().move(0.0, 1);
-    //     }
-    // }
-
 }
