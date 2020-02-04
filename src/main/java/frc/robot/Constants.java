@@ -19,6 +19,7 @@ public final class Constants {
 	
 	public static final int MAGIC_EDGES_PER_CYCLE = 2;
 	public static final int MAGIC_FILTER_WINDOW_SIZE = 1;
+	public static final double MAGIC_LIMELIGHT_GOAL = 0.05;
 	public static final int TALON_FX_SENSOR_UNITS = 2048;
 
 	public static final int CONTROLLER_PORT = 0;

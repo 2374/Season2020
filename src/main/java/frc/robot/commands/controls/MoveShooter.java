@@ -1,5 +1,7 @@
 package frc.robot.commands.controls;
 
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shooter;
 
@@ -25,7 +27,7 @@ public class MoveShooter extends CommandBase {
 
     @Override
     public void initialize() {
-        
+        System.out.println("Shooting at power : " + power);
     }
 
     @Override

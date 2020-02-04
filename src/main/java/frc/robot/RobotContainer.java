@@ -1,10 +1,13 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.controls.MoveRobot;
 import frc.robot.commands.controls.MoveShooter;
 import frc.robot.commands.controls.MoveTurret;
-import frc.robot.commands.magic.AdjustToTarget;
+import frc.robot.commands.magic.TurretToTarget;
+import frc.robot.commands.magic.DeployBall;
+import frc.robot.commands.TempShooter;
 import frc.robot.commands.magic.TestCommand;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
@@ -48,18 +51,12 @@ public class RobotContainer {
     JoystickAxisButton leftTrigger = new JoystickAxisButton(controller.getController(), Constants.CONTROLLER_LEFT_TRIGGER);
     JoystickAxisButton leftYAxis = new JoystickAxisButton(controller.getController(), Constants.CONTROLLER_LEFT_AXIS_Y, 0.1);
 
-    buttonB.whenHeld(new MoveTurret(turret, 0.1, 1));
-    buttonX.whenHeld(new MoveTurret(turret, 0.1, -1));
-    buttonStart.whenPressed(new AdjustToTarget(turret, limelight));
-    leftTrigger.whileHeld(new MoveShooter(shooter, controller.getLeftTrigger()));
+    buttonB.whenHeld(new MoveTurret(turret, 0.2, 1));
+    buttonX.whenHeld(new MoveTurret(turret, 0.2, -1));
+    buttonStart.whenPressed(new TurretToTarget(turret, limelight));
+    leftTrigger.whileHeld(new TempShooter(shooter));
     buttonBack.whenPressed(new TestCommand(shooter, limelight));
-
-    buttonA.whenHeld(new MoveShooter(shooter, 0.80));
-    buttonY.whenHeld(new MoveShooter(shooter, 0.85));
-    buttonM1.whenHeld(new MoveShooter(shooter, 0.87));
-    buttonM2.whenHeld(new MoveShooter(shooter, 0.90));
-    leftBumper.whenHeld(new MoveShooter(shooter, 0.95));
-    rightBumper.whenHeld(new MoveShooter(shooter, 1.0));
+    buttonY.whenPressed(new DeployBall(turret, shooter, limelight));
 
     //leftYAxis.whileHeld(new TestCommand(controller));
     //leftYAxis.whileHeld(new MoveRobot(drivetrain, controller.getJoystickLeftY(), controller.getJoystickLeftX(), false));

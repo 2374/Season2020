@@ -7,31 +7,14 @@ import frc.robot.util.LimeLight;
 
 public class DeployBall extends SequentialCommandGroup {
 
-    private Turret turret;
-    private Shooter shooter;
-    private LimeLight limelight;
-
     public DeployBall(Turret turret, Shooter shooter, LimeLight limelight) {
-        this.turret = turret;
-        this.shooter = shooter;
-        this.limelight = limelight;
-
         addRequirements(turret);
         addRequirements(shooter);
-    }
-
-    public DeployBall() {
-
-        System.out.println("Running");
 
         addCommands(
-
-            //new FindTarget(drivetrain, limelight),
-            //new MoveRobot(drivetrain, 0.2, limelight.getTurnValue(), false)
-            /*,*/
-            /*new EjectBall(shooter, 0.69).withTimeout(1)*/
+            new TurretToTarget(turret, limelight),
+            new EjectBall(shooter, shooter.distanceToPower(limelight.calculateDistance())).withTimeout(8.0)
         );
-
     }
 
 }

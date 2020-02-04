@@ -1,38 +1,38 @@
-package frc.robot.commands.magic;
+package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shooter;
 
-public class EjectBall extends CommandBase {
+public class TempShooter extends CommandBase {
 
     private Shooter shooter;
-    private double powerValue;
 
-    public EjectBall(Shooter shooter, double powerValue) {
+    public TempShooter(Shooter shooter) {
         this.shooter = shooter;
-        this.powerValue = powerValue;
 
         addRequirements(shooter);
     }
 
     @Override
     public void initialize() {
+
     }
 
     @Override
     public void execute() {
-        System.out.println("Power: " + powerValue);
-        shooter.move(powerValue, 1);
+        double power = (double) SmartDashboard.getNumber("speed", 0.01);
+        System.out.println("Shooting at : " + power);
+        shooter.move(power, 1);
     }
 
     @Override
     public void end(boolean interrupted) {
-        shooter.move(0.0, 1);
+        shooter.move(0.0, 0);
     }
 
     @Override
     public boolean isFinished() {
         return false;
     }
-
 }

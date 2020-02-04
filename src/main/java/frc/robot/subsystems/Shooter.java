@@ -36,6 +36,11 @@ public class Shooter extends SubsystemBase {
         return ((9.0 / 60400.0) * rpm) + (343.0 / 6040.0);
     }
 
+    public double distanceToPower(double distance) {
+        double power = 0.5152 * Math.pow(distance, 0.0798);
+        return power < 1.0 ? power : 0.0;
+    }
+
     public int getRPM() {
         int velocity = leftShooter.getSelectedSensorVelocity(0);
         return velocity * 600 / Constants.TALON_FX_SENSOR_UNITS;
