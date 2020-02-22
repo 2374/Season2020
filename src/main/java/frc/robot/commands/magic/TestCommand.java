@@ -1,7 +1,6 @@
 package frc.robot.commands.magic;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Controller;
 import frc.robot.subsystems.Shooter;
 import frc.robot.util.LimeLight;
 

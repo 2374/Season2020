@@ -1,5 +1,6 @@
 package frc.robot.commands.magic;
 
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Turret;
@@ -19,6 +20,8 @@ public class TurretToTarget extends CommandBase {
     @Override
     public void initialize() {
         isFinished = false;
+
+        NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").setNumber(3);
     }
 
     @Override
@@ -35,6 +38,8 @@ public class TurretToTarget extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         turret.turn(0.0, 0);
+        
+        NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").setNumber(1);
     }
 
     @Override

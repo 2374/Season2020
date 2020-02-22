@@ -37,13 +37,13 @@ public class Shooter extends SubsystemBase {
     }
 
     public double distanceToPower(double distance) {
-        double power = 0.5152 * Math.pow(distance, 0.0798);
+        double power = (-2.0 * Math.pow(10.0, -8) * Math.pow(distance, 3.0)) + (3.0 * Math.pow(10.0, -5.0) * Math.pow(distance, 2.0)) - (0.0116 * distance) + 2.2446;
         return power < 1.0 ? power : 0.0;
     }
 
     public int getRPM() {
         int velocity = leftShooter.getSelectedSensorVelocity(0);
-        return velocity * 600 / Constants.TALON_FX_SENSOR_UNITS;
+        return velocity * 600 / Constants.MAGIC_TALON_FX_SENSOR_UNITS;
     }
 
 }
