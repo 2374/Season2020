@@ -1,5 +1,3 @@
-// accounted for the change in the angle
-
 package frc.robot.util;
 
 import edu.wpi.first.networktables.NetworkTableInstance;

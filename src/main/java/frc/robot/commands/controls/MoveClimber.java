@@ -12,7 +12,7 @@ public class MoveClimber extends CommandBase {
         this.climber = climber; 
         this.power = power;
 
-        addRequirements(climber); 
+        super.addRequirements(climber); 
     }
     
     public void initialize() {

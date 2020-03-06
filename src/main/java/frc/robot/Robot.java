@@ -29,8 +29,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    // container.getDrivetrain().tankDrive(-container.getController().getJoystickLeftY() / 2.0, -container.getController().getJoystickRightY() / 2.0);
-    container.getDrivetrain().arcadeDrive(-container.getJoystickController().getYAxis(), container.getJoystickController().getXAxis());
+    container.getDrivetrain().tankDrive(-container.getXboxController().getLeftXAxis() / 2.0, -container.getXboxController().getRightYAxis() / 2.0);
+    //container.getDrivetrain().arcadeDrive(-container.getJoystickController().getYAxis(), container.getJoystickController().getXAxis());
   }
 
   @Override

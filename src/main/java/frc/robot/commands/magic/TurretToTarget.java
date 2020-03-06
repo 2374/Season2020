@@ -3,6 +3,7 @@ package frc.robot.commands.magic;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Turret;
 import frc.robot.util.LimeLight;
 
@@ -12,9 +13,9 @@ public class TurretToTarget extends CommandBase {
     private LimeLight limelight;
     private boolean isFinished;
 
-    public TurretToTarget(Turret turret, LimeLight limelight) {
-        this.turret = turret;
-        this.limelight = limelight;
+    public TurretToTarget(RobotContainer container) {
+        this.turret = container.getTurret();
+        this.limelight = container.getLimeLight();
     }
 
     @Override

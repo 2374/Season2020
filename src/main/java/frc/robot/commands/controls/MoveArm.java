@@ -11,6 +11,8 @@ public class MoveArm extends CommandBase {
     public MoveArm(Arm arm, double power) {
         this.arm = arm;
         this.power = power;
+
+        super.addRequirements(arm);
     }
 
     @Override

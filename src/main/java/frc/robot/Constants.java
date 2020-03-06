@@ -4,27 +4,24 @@ public final class Constants {
 
 	public static final double SPEED_INTAKE = 0.5;
 	public static final double SPEED_INDEXER = 0.5;
-	public static final double SPEED_INDEXER_STAGE_1 = 0.4;
-	public static final double SPEED_INDEXER_STAGE_2 = 0.4;
-	public static final double SPEED_INDEXER_STAGE_3 = 0.5;
-	public static final double SPEED_INDEXER_STAGE_4 = 0.4;
 	public static final double SPEED_TURRET = 0.5;
 	public static final double SPEED_SHOOTER = 0.3;
+	public static final double SPEED_ARM = 0.5;
 	public static final double SPEED_FINGER = 0.3;
 	public static final double SPEED_CLIMBER = 0.5;
-
-	public static final int INTAKE_PORT = 5;
-	public static final int SHOOTER_LEFT_PORT = 11;
-	public static final int SHOOTER_RIGHT_PORT = 10;
-	public static final int TURRET_PORT = 17;
-    public static final int OUTTAKE_RIGHT_PORT = 19;
-	public static final int OUTTAKE_LEFT_PORT = 8;
-	public static final int COLOR_SENSOR_PORT = 69;
 
 	public static final int DRIVETRAIN_FRONT_LEFT_PORT = 1;
     public static final int DRIVETRAIN_FRONT_RIGHT_PORT = 3;
 	public static final int DRIVETRAIN_BACK_LEFT_PORT = 4;
 	public static final int DRIVETRAIN_BACK_RIGHT_PORT = 2;
+	
+	public static final int INTAKE_PORT = 5;
+	public static final int TURRET_PORT = 17;
+	public static final int SHOOTER_LEFT_PORT = 11;
+	public static final int SHOOTER_RIGHT_PORT = 10;
+    public static final int OUTTAKE_RIGHT_PORT = 19;
+	public static final int OUTTAKE_LEFT_PORT = 8;
+	public static final int COLOR_SENSOR_PORT = 69;
 
 	public static final int CLIMBER_ARM_PORT = 20;
     public static final int CLIMBER_LEFT_PORT = 21;
@@ -42,10 +39,10 @@ public final class Constants {
 	public static final int SENSOR_STAGE_3_PORT = 3;
 	public static final int SENSOR_STAGE_4_PORT = 4;
 	
-	public static final int MAGIC_EDGES_PER_CYCLE = 2;
-	public static final int MAGIC_FILTER_WINDOW_SIZE = 1;
 	public static final double MAGIC_LIMELIGHT_GOAL = 0.05;
 	public static final int MAGIC_TALON_FX_SENSOR_UNITS = 2048;
+	public static final double MAGIC_TALON_SRX_SENSOR_UNITS = 4096.0;
+	public static final double WHEEL_DIAMETER = 6.0;
 
 	public static final int XBOX_CONTROLLER_PORT = 0;
 	public static final int XBOX_CONTROLLER_LEFT_AXIS_X = 0;

@@ -14,7 +14,7 @@ public class MoveIntake extends CommandBase {
         this.power = power;
         this.direction = direction;
 
-        addRequirements(intake);
+        super.addRequirements(intake);
     }
 
     @Override

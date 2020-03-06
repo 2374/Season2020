@@ -1,5 +1,6 @@
 package frc.robot;
 
+import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.ColorSensorV3;
 
 import edu.wpi.first.wpilibj.I2C;
@@ -17,6 +18,7 @@ import frc.robot.commands.magic.SpinToColor;
 import frc.robot.commands.magic.SpinToRevolutions;
 import frc.robot.commands.automate.AutomateShooter;
 import frc.robot.commands.automate.indexer.ProcessStage;
+import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Finger;
@@ -33,10 +35,12 @@ public class RobotContainer {
   private Indexer indexer;
   private Turret turret;
   private Shooter shooter;
+  private Arm arm;
   private Finger finger;
   private Climber climber;
   private ColorSensorV3 colorSensor;
   private LimeLight limelight;
+  private AHRS navx;
   private ControllerXbox xboxController;
   private ControllerJoystick joystickController;
 
@@ -46,9 +50,12 @@ public class RobotContainer {
     this.indexer = new Indexer();
     this.turret = new Turret();
     this.shooter = new Shooter();
+    this.arm = new Arm();
+    this.finger = new Finger();
     this.climber = new Climber();
     this.colorSensor = new ColorSensorV3(I2C.Port.kOnboard);
     this.limelight = new LimeLight();
+    this.navx = new AHRS();
     this.xboxController = new ControllerXbox();
     this.joystickController = new ControllerJoystick();
 
@@ -76,7 +83,6 @@ public class RobotContainer {
     JoystickButton buttonY = new JoystickButton(xbox, Constants.XBOX_CONTROLLER_BUTTON_Y);
     JoystickButton buttonA = new JoystickButton(xbox, Constants.XBOX_CONTROLLER_BUTTON_A);
     JoystickButton buttonB = new JoystickButton(xbox, Constants.XBOX_CONTROLLER_BUTTON_B);
-
     JoystickButton backButton = new JoystickButton(xbox, Constants.XBOX_CONTROLLER_BUTTON_BACK);
     JoystickButton startButton = new JoystickButton(xbox, Constants.XBOX_CONTROLLER_BUTTON_START);
     JoystickButton leftBumper = new JoystickButton(xbox, Constants.XBOX_CONTROLLER_LEFT_BUMPER);
@@ -84,15 +90,15 @@ public class RobotContainer {
     button1.whileHeld(new MoveIntake(intake, Constants.SPEED_INTAKE, 1));
     button2.whileHeld(new MoveIntake(intake, Constants.SPEED_INTAKE, -1));
 
-    button3.whenPressed(new AutomateShooter(joystickController, turret, shooter, limelight, indexer, intake));
+    button3.whenPressed(new AutomateShooter(this));
     button4.whileHeld(new ProcessStage(indexer));
     button5.whileHeld(new MoveTurret(turret, Constants.SPEED_TURRET, -1));
     button6.whileHeld(new MoveTurret(turret, Constants.SPEED_TURRET, 1));
-    button7.whileHeld(new MoveStage(indexer, 3, Constants.SPEED_INDEXER_STAGE_3, 1));
-    button8.whileHeld(new MoveStage(indexer, 2, Constants.SPEED_INDEXER_STAGE_2, -1));
-    button9.whileHeld(new MoveStage(indexer, 2, Constants.SPEED_INDEXER_STAGE_2, 1));
-    button10.whileHeld(new MoveStage(indexer, 4, Constants.SPEED_INDEXER_STAGE_4, 1));
-    button11.whileHeld(new MoveStage(indexer, 1, Constants.SPEED_INDEXER_STAGE_1, 1));
+    button7.whileHeld(new MoveStage(indexer, 3, Constants.SPEED_INDEXER, 1));
+    button8.whileHeld(new MoveStage(indexer, 2, Constants.SPEED_INDEXER, -1));
+    button9.whileHeld(new MoveStage(indexer, 2, Constants.SPEED_INDEXER, 1));
+    button10.whileHeld(new MoveStage(indexer, 4, Constants.SPEED_INDEXER, 1));
+    button11.whileHeld(new MoveStage(indexer, 1, Constants.SPEED_INDEXER, 1));
     button12.whileHeld(new MoveIndexer(indexer, Constants.SPEED_INDEXER, 1));
 
     backButton.whileHeld(new MoveFinger(finger, Constants.SPEED_FINGER));
@@ -116,6 +122,8 @@ public class RobotContainer {
 
   public Shooter getShooter() { return shooter; }
 
+  public Arm getArm() { return arm; }
+
   public Finger getFinger() { return finger; }
 
   public Climber getClimber() { return climber; }
@@ -123,6 +131,8 @@ public class RobotContainer {
   public ColorSensorV3 getColorSensor() { return colorSensor; }
   
   public LimeLight getLimeLight() { return limelight; }
+
+  public AHRS getNavX() { return navx; }
 
   public ControllerXbox getXboxController() { return xboxController; }
 

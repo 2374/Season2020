@@ -7,7 +7,7 @@ public class JoystickAxisButton extends Button {
 
     private GenericHID joystick;
     private int axisNumber;
-    private double threshold = 0.0;
+    private double threshold = 0.1;
 
     public JoystickAxisButton(GenericHID joystick, int axisNumber) {
         this.joystick = joystick;

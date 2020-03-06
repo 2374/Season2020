@@ -15,6 +15,8 @@ public class MoveStage extends CommandBase {
         this.stage = stage;
         this.power = power;
         this.direction = direction;
+
+        super.addRequirements(indexer);
     }
 
     @Override

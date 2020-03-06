@@ -11,6 +11,8 @@ public class MoveFinger extends CommandBase {
     public MoveFinger(Finger finger, double power) {
         this.finger = finger;
         this.power = power;
+        
+        super.addRequirements(finger);
     }
 
     @Override

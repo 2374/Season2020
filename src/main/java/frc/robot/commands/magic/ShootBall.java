@@ -3,6 +3,7 @@ package frc.robot.commands.magic;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.ControllerJoystick;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Shooter;
 import frc.robot.util.LimeLight;
@@ -15,11 +16,11 @@ public class ShootBall extends CommandBase {
     private LimeLight limelight;
     private double power;
 
-    public ShootBall(ControllerJoystick controller, Shooter shooter, Indexer indexer, LimeLight limelight, double power) {
-        this.controller = controller;
-        this.shooter = shooter;
-        this.indexer = indexer;
-        this.limelight = limelight;
+    public ShootBall(RobotContainer container, double power) {
+        this.controller = container.getJoystickController();
+        this.shooter = container.getShooter();
+        this.indexer = container.getIndexer();
+        this.limelight = container.getLimeLight();
         this.power = power;
 
         addRequirements(shooter);
@@ -36,7 +37,7 @@ public class ShootBall extends CommandBase {
         //     indexer.move(4, Constants.SPEED_INDEXER_STAGE_4);
         //     shooter.move(power, 1);
         // } else {
-            indexer.move(4, Constants.SPEED_INDEXER_STAGE_4, 1);
+            indexer.move(4, Constants.SPEED_INDEXER, 1);
             shooter.move(0.80 + (controller.getSlider() * 0.20), 1);
         // }
     }

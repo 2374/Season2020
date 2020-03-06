@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -18,10 +17,6 @@ public class Shooter extends SubsystemBase {
 
         rightShooter.follow(leftShooter);
         leftShooter.setInverted(true);
-
-        leftShooter.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 0, 1000);
-        leftShooter.configPulseWidthPeriod_EdgesPerRot(Constants.MAGIC_EDGES_PER_CYCLE, 1000);
-        leftShooter.configPulseWidthPeriod_FilterWindowSz(Constants.MAGIC_FILTER_WINDOW_SIZE, 1000);
     }
 
     public void move(double powerValue, int direction) {

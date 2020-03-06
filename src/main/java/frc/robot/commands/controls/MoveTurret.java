@@ -14,7 +14,7 @@ public class MoveTurret extends CommandBase {
         this.power = power;
         this.direction = direction;
 
-        addRequirements(turret);
+        super.addRequirements(turret);
     }
 
     @Override

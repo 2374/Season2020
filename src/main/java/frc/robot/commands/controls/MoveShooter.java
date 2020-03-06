@@ -13,14 +13,14 @@ public class MoveShooter extends CommandBase {
         this.shooter = shooter;
         this.power = power;
 
-        addRequirements(shooter);
+        super.addRequirements(shooter);
     }
 
     public MoveShooter(Shooter shooter, int rpm) {
         this.shooter = shooter;
         this.rpm = rpm;
 
-        addRequirements(shooter);
+        super.addRequirements(shooter);
     }
 
     @Override

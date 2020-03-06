@@ -13,6 +13,8 @@ public class MoveIndexer extends CommandBase {
         this.indexer = indexer;
         this.power = power;
         this.direction = direction;
+
+        super.addRequirements(indexer);
     }
 
     @Override
