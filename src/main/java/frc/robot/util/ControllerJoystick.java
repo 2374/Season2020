@@ -1,6 +1,7 @@
-package frc.robot;
+package frc.robot.util;
 
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.Constants;
 
 public class ControllerJoystick {
 
@@ -14,9 +15,9 @@ public class ControllerJoystick {
 
     public double getSlider() { return (1.0 - joystick.getRawAxis(Constants.JOYSTICK_CONTROLLER_SLIDER)); }
 
-    public double getXAxis() { return joystick.getRawAxis(Constants.JOYSTICK_CONTROLLER_X_AXIS); }
+    public double getXAxis() { return Toolkit.deadZone(joystick.getRawAxis(Constants.JOYSTICK_CONTROLLER_X_AXIS), 0.1); }
 
-    public double getYAxis() { return joystick.getRawAxis(Constants.JOYSTICK_CONTROLLER_Y_AXIS); }
+    public double getYAxis() { return Toolkit.deadZone(joystick.getRawAxis(Constants.JOYSTICK_CONTROLLER_Y_AXIS), 0.1); }
 
     public double getZAxis() { return joystick.getRawAxis(Constants.JOYSTICK_CONTROLLER_Z_AXIS); }
 

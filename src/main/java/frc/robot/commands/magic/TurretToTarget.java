@@ -28,7 +28,7 @@ public class TurretToTarget extends CommandBase {
     @Override
     public void execute() {
         if (limelight.hasValidTarget()) {
-            if (Math.abs(limelight.getHorizontalTargetAngle()) > Constants.MAGIC_LIMELIGHT_GOAL) {
+            if (Math.abs(limelight.getHorizontalTargetAngle()) > Constants.LIMELIGHT_TOLERANCE) {
                 turret.turn(0.05, limelight.getTurnValue() > 0 ? 1 : -1);
             } else {
                 isFinished = true;

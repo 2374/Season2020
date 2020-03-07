@@ -1,4 +1,4 @@
-package frc.robot.commands.automate.indexer;
+package frc.robot.commands.magic;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Indexer;

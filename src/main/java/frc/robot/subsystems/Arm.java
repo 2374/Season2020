@@ -11,7 +11,7 @@ public class Arm extends SubsystemBase {
     private TalonSRX arm;
 
     public Arm() {
-        this.arm = new TalonSRX(Constants.CLIMBER_ARM_PORT);
+        this.arm = new TalonSRX(Constants.ARM_PORT);
         
         arm.setInverted(true);
     }

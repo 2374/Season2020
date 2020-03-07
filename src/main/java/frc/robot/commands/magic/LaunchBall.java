@@ -9,7 +9,7 @@ public class LaunchBall extends ParallelCommandGroup {
     public LaunchBall(RobotContainer container) {
 
         addCommands(
-            new MoveIndexer(container.getIndexer(), 0.5, 1).withTimeout(5.0),
+            //new MoveIndexer(container.getIndexer(), 0.5, 1).withTimeout(5.0),
             new ShootBall(container, container.getShooter().distanceToPower(container.getLimeLight().calculateDistance())).withTimeout(5.0)
             );
 

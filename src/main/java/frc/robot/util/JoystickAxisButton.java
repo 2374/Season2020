@@ -20,7 +20,7 @@ public class JoystickAxisButton extends Button {
     }
 
     public boolean get() {
-        return (Math.abs(joystick.getRawAxis(axisNumber)) > threshold);
+        return Math.abs(joystick.getRawAxis(axisNumber)) > threshold;
     }
 
 }

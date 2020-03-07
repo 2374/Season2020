@@ -12,7 +12,7 @@ public class LimeLight {
 
     static final double LIMELIGHT_HEIGHT_CM = 84.455; //h1
     static final double TARGET_HEIGHT_CM = 206.0; //h2
-    static final double LIMELIGHT_MOUNTING_ANGLE = 9.8; //a1
+    static final double LIMELIGHT_MOUNTING_ANGLE = 12.0; //a1
     
     public void updateTracking() {
 

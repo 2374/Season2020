@@ -8,18 +8,18 @@ import frc.robot.Constants;
 
 public class Climber extends SubsystemBase {
     
-    private TalonFX leftClimber;
-    private TalonFX rightClimber;
+    private TalonFX climberMaster;
+    private TalonFX climberSlave;
 
     public Climber() {
-        this.leftClimber = new TalonFX(Constants.CLIMBER_LEFT_PORT);
-        this.rightClimber = new TalonFX(Constants.CLIMBER_RIGHT_PORT);
+        this.climberMaster = new TalonFX(Constants.CLIMBER_LEFT_PORT);
+        this.climberSlave = new TalonFX(Constants.CLIMBER_RIGHT_PORT);
 
-        rightClimber.follow(leftClimber);
+        climberSlave.follow(climberMaster);
     }
 
     public void move(double power) {
-        leftClimber.set(ControlMode.PercentOutput, power);
+        climberMaster.set(ControlMode.PercentOutput, power);
     }
 
 }

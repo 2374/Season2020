@@ -1,6 +1,7 @@
 package frc.robot.commands.controls;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Turret;
 
 public class MoveTurret extends CommandBase {
@@ -9,8 +10,8 @@ public class MoveTurret extends CommandBase {
     private double power;
     private int direction;
 
-    public MoveTurret(Turret turret, double power, int direction) {
-        this.turret = turret;
+    public MoveTurret(RobotContainer container, double power, int direction) {
+        this.turret = container.getTurret();
         this.power = power;
         this.direction = direction;
 

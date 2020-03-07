@@ -62,11 +62,11 @@ public class Drivetrain extends SubsystemBase {
   }
 
   private double getLeftEncoderRotations() {
-    return frontLeft.getSelectedSensorPosition(0) / Constants.MAGIC_TALON_SRX_SENSOR_UNITS;
+    return frontLeft.getSelectedSensorPosition(0) / Constants.TALON_SRX_SENSOR_UNITS;
   }
 
   private double getRightEncoderRotations() {
-      return frontRight.getSelectedSensorPosition(0) / Constants.MAGIC_TALON_SRX_SENSOR_UNITS;
+      return frontRight.getSelectedSensorPosition(0) / Constants.TALON_SRX_SENSOR_UNITS;
   }
 
   public double getLeftEncoderDistance() {
@@ -78,11 +78,11 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public double getLeftEncoderVelocity() {
-      return rotationsToInches(frontLeft.getSelectedSensorVelocity(0) * 10.0 / Constants.MAGIC_TALON_SRX_SENSOR_UNITS);
+      return rotationsToInches(frontLeft.getSelectedSensorVelocity(0) * 10.0 / Constants.TALON_SRX_SENSOR_UNITS);
   }
 
   public double getRightEncoderVelocity() {
-      return rotationsToInches(frontRight.getSelectedSensorVelocity(0) * 10.0 / Constants.MAGIC_TALON_SRX_SENSOR_UNITS);
+      return rotationsToInches(frontRight.getSelectedSensorVelocity(0) * 10.0 / Constants.TALON_SRX_SENSOR_UNITS);
   }
 
   private double rotationsToInches(double rotations) {

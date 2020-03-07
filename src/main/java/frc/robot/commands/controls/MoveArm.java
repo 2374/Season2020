@@ -1,6 +1,7 @@
 package frc.robot.commands.controls;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Arm;
 
 public class MoveArm extends CommandBase {
@@ -8,8 +9,8 @@ public class MoveArm extends CommandBase {
     private Arm arm;
     private double power;
 
-    public MoveArm(Arm arm, double power) {
-        this.arm = arm;
+    public MoveArm(RobotContainer container, double power) {
+        this.arm = container.getArm();
         this.power = power;
 
         super.addRequirements(arm);

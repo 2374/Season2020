@@ -1,6 +1,7 @@
 package frc.robot.commands.controls;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
 
 public class MoveIntake extends CommandBase {
@@ -9,8 +10,8 @@ public class MoveIntake extends CommandBase {
     private double power;
     private int direction;
 
-    public MoveIntake(Intake intake, double power, int direction) {
-        this.intake = intake;
+    public MoveIntake(RobotContainer container, double power, int direction) {
+        this.intake = container.getIntake();
         this.power = power;
         this.direction = direction;
 

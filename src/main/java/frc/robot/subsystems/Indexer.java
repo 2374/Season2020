@@ -9,8 +9,7 @@ import frc.robot.Constants;
 
 public class Indexer extends SubsystemBase {
 
-    private TalonSRX stage1Top;
-    private TalonSRX stage1Bottom;
+    private TalonSRX stage1;
     private TalonSRX stage2;
     private TalonSRX stage3;
     private TalonSRX stage4;
@@ -20,28 +19,23 @@ public class Indexer extends SubsystemBase {
     private DigitalInput stage4Sensor;
 
     public Indexer() {
-        this.stage1Top = new TalonSRX(Constants.INDEXER_STAGE_1_TOP_PORT);
-        this.stage1Bottom = new TalonSRX(Constants.INDEXER_STAGE_1_BOTTOM_PORT);
-        this.stage2 = new TalonSRX(Constants.INDEXER_STAGE_2_PORT);
-        this.stage3 = new TalonSRX(Constants.INDEXER_STAGE_3_PORT);
-        this.stage4 = new TalonSRX(Constants.INDEXER_STAGE_4_PORT);
+        this.stage1 = new TalonSRX(Constants.INDEXER_UPPER_MOTOR_1_PORT);
+        this.stage2 = new TalonSRX(Constants.INDEXER_LOWER_MOTOR_1_PORT);
+        this.stage3 = new TalonSRX(Constants.INDEXER_UPPER_MOTOR_2_PORT);
+        this.stage4 = new TalonSRX(Constants.INDEXER_LOWER_MOTOR_2_PORT);
 
         this.stage1Sensor = new DigitalInput(Constants.SENSOR_STAGE_1_PORT);
         this.stage2Sensor = new DigitalInput(Constants.SENSOR_STAGE_2_PORT);
         this.stage3Sensor = new DigitalInput(Constants.SENSOR_STAGE_3_PORT);
         this.stage4Sensor = new DigitalInput(Constants.SENSOR_STAGE_4_PORT);
 
-        stage1Top.setInverted(true);
-        stage1Bottom.setInverted(true);
-        stage2.setInverted(true);
-        stage3.setInverted(true);
+        stage4.setInverted(true);
     }
 
     public void move(int stage, double power, int direction) {
         switch (stage) {
             case 1:
-                stage1Top.set(ControlMode.PercentOutput, power * direction);
-                stage1Bottom.set(ControlMode.PercentOutput, power * direction);
+                stage1.set(ControlMode.PercentOutput, power * direction);
                 break;
             case 2:
                 stage2.set(ControlMode.PercentOutput, power * direction);

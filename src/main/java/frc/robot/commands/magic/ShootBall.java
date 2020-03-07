@@ -2,7 +2,7 @@ package frc.robot.commands.magic;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.ControllerJoystick;
+import frc.robot.util.ControllerJoystick;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Shooter;
@@ -37,8 +37,8 @@ public class ShootBall extends CommandBase {
         //     indexer.move(4, Constants.SPEED_INDEXER_STAGE_4);
         //     shooter.move(power, 1);
         // } else {
-            indexer.move(4, Constants.SPEED_INDEXER, 1);
-            shooter.move(0.80 + (controller.getSlider() * 0.20), 1);
+            indexer.move(4, Constants.SPEED_INDEXER, -1);
+            shooter.move(0.70 + (controller.getSlider() * 0.20), 1);
         // }
     }
 

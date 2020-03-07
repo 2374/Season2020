@@ -1,6 +1,7 @@
-package frc.robot;
+package frc.robot.util;
 
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.Constants;
 
 public class ControllerXbox {
 

@@ -10,38 +10,32 @@ public final class Constants {
 	public static final double SPEED_FINGER = 0.3;
 	public static final double SPEED_CLIMBER = 0.5;
 
-	public static final int DRIVETRAIN_FRONT_LEFT_PORT = 1;
-    public static final int DRIVETRAIN_FRONT_RIGHT_PORT = 3;
-	public static final int DRIVETRAIN_BACK_LEFT_PORT = 4;
+	public static final int DRIVETRAIN_FRONT_LEFT_PORT = 3;
+    public static final int DRIVETRAIN_FRONT_RIGHT_PORT = 4;
+	public static final int DRIVETRAIN_BACK_LEFT_PORT = 1;
 	public static final int DRIVETRAIN_BACK_RIGHT_PORT = 2;
 	
-	public static final int INTAKE_PORT = 5;
-	public static final int TURRET_PORT = 17;
+	public static final int INTAKE_PORT = 21;
+	public static final int TURRET_PORT = 7;
 	public static final int SHOOTER_LEFT_PORT = 11;
-	public static final int SHOOTER_RIGHT_PORT = 10;
-    public static final int OUTTAKE_RIGHT_PORT = 19;
-	public static final int OUTTAKE_LEFT_PORT = 8;
-	public static final int COLOR_SENSOR_PORT = 69;
+	public static final int SHOOTER_RIGHT_PORT = 6;
+	public static final int ARM_PORT = 19;
+    public static final int CLIMBER_LEFT_PORT = 22;
+    public static final int CLIMBER_RIGHT_PORT = 25;
 
-	public static final int CLIMBER_ARM_PORT = 20;
-    public static final int CLIMBER_LEFT_PORT = 21;
-    public static final int CLIMBER_RIGHT_PORT = 22;
-    public static final int CLIMBER_FINGER_PORT = 23;
-
-	public static final int INDEXER_STAGE_1_TOP_PORT = 16;
-	public static final int INDEXER_STAGE_1_BOTTOM_PORT = 18;
-	public static final int INDEXER_STAGE_2_PORT = 15;
-	public static final int INDEXER_STAGE_3_PORT = 12;
-	public static final int INDEXER_STAGE_4_PORT = 19;  
+	public static final int INDEXER_UPPER_MOTOR_1_PORT = 24;
+	public static final int INDEXER_LOWER_MOTOR_1_PORT = 17;
+	public static final int INDEXER_UPPER_MOTOR_2_PORT = 16;
+	public static final int INDEXER_LOWER_MOTOR_2_PORT = 18;  
 
 	public static final int SENSOR_STAGE_1_PORT = 1;
 	public static final int SENSOR_STAGE_2_PORT = 2;
 	public static final int SENSOR_STAGE_3_PORT = 3;
 	public static final int SENSOR_STAGE_4_PORT = 4;
 	
-	public static final double MAGIC_LIMELIGHT_GOAL = 0.05;
-	public static final int MAGIC_TALON_FX_SENSOR_UNITS = 2048;
-	public static final double MAGIC_TALON_SRX_SENSOR_UNITS = 4096.0;
+	public static final double LIMELIGHT_TOLERANCE = 0.05;
+	public static final int TALON_FX_SENSOR_UNITS = 2048;
+	public static final double TALON_SRX_SENSOR_UNITS = 4096.0;
 	public static final double WHEEL_DIAMETER = 6.0;
 
 	public static final int XBOX_CONTROLLER_PORT = 0;

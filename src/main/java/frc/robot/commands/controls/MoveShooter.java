@@ -1,6 +1,7 @@
 package frc.robot.commands.controls;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Shooter;
 
 public class MoveShooter extends CommandBase {
@@ -9,15 +10,15 @@ public class MoveShooter extends CommandBase {
     private double power;
     private int rpm;
 
-    public MoveShooter(Shooter shooter, double power) {
-        this.shooter = shooter;
+    public MoveShooter(RobotContainer container, double power) {
+        this.shooter = container.getShooter();
         this.power = power;
 
         super.addRequirements(shooter);
     }
 
-    public MoveShooter(Shooter shooter, int rpm) {
-        this.shooter = shooter;
+    public MoveShooter(RobotContainer container, int rpm) {
+        this.shooter = container.getShooter();
         this.rpm = rpm;
 
         super.addRequirements(shooter);
